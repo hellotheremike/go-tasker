@@ -12,7 +12,7 @@ func Connect() (*sql.DB, error) {
 	db, err := sql.Open("postgres", config.Load().DATABASE_URL)
 	if err != nil {
 		log.Fatal("Failed to connect:", err)
-		
+
 		return nil, err
 	}
 
@@ -25,4 +25,3 @@ func Connect() (*sql.DB, error) {
 
 	return db, nil
 }
-

@@ -12,11 +12,12 @@ import (
 type contextKey string
 
 var JWT_SECRET = config.Load().JWT_SECRET
-const  ContextUserKey = contextKey("user")
+
+const ContextUserKey = contextKey("user")
 
 func JwtMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		
+
 		header := c.GetHeader("Authorization")
 		if header == "" {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
@@ -46,7 +47,6 @@ func JwtMiddleware() gin.HandlerFunc {
 			c.Abort()
 			return
 		}
-
 
 		c.Set(string(ContextUserKey), claims["sub"])
 

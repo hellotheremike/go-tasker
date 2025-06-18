@@ -10,7 +10,7 @@ import (
 func StartServer() {
 
 	router := SetupRouter()
-	
+
 	router.Run(fmt.Sprintf(":%s", config.Load().DATABASE_URL))
 
 	log.Println("Server is running on port 8080")

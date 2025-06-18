@@ -9,8 +9,8 @@ import (
 
 type Config struct {
 	DATABASE_URL string
-	JWT_SECRET string
-	PORT string
+	JWT_SECRET   string
+	PORT         string
 }
 
 func Load() *Config {
@@ -21,8 +21,8 @@ func Load() *Config {
 
 	return &Config{
 		DATABASE_URL: getEnv("DATABASE_URL", ""),
-		JWT_SECRET: getEnv("JWT_SECRET", ""),
-		PORT: getEnv("PORT", "8080"),
+		JWT_SECRET:   getEnv("JWT_SECRET", ""),
+		PORT:         getEnv("PORT", "8080"),
 	}
 }
 
